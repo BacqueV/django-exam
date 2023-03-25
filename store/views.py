@@ -20,9 +20,9 @@ class CategoryViewSet(ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
 
-    filter_fields = ['name', 'slug']
-    search_fields = ['name', 'slug']
-    ordering_fields = ['name', 'slug']
+    filter_fields = ['title', 'slug']
+    search_fields = ['title', 'slug']
+    ordering_fields = ['title', 'slug']
 
 
 class ProductViewSet(ModelViewSet):
@@ -33,9 +33,9 @@ class ProductViewSet(ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
 
-    filter_fields = ['category', 'name', 'price']
-    search_fields = ['category', 'name', 'price']
-    ordering_fields = ['category', 'name', 'price']
+    filter_fields = ['category', 'title', 'price']
+    search_fields = ['category', 'title', 'price']
+    ordering_fields = ['category', 'title', 'price']
 
 
 class OrderViewSet(ModelViewSet):
@@ -46,9 +46,9 @@ class OrderViewSet(ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
 
-    filter_fields = ['client', 'shipping', 'is_paid', 'total_price']
-    search_fields = ['client', 'shipping', 'is_paid', 'total_price']
-    ordering_fields = ['client', 'shipping', 'is_paid', 'total_price']
+    filter_fields = ['user', 'is_paid', 'total_price']
+    search_fields = ['user', 'is_paid', 'total_price']
+    ordering_fields = ['user', 'is_paid', 'total_price']
 
 
 class OrderItemViewSet(ModelViewSet):

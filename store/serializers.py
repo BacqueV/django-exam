@@ -25,6 +25,6 @@ class OrderSerializer(ModelSerializer):
 
 class OrderItemSerializer(ModelSerializer):
     class Meta:
-        model = models.Category
+        model = models.OrderItem
         fields = '__all__'
         read_only_fields = ('id', )

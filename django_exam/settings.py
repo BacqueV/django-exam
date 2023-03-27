@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     # external
     'django_seed',
+    'drf_yasg',
     # my apps
     'store'
 ]

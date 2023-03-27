@@ -17,9 +17,34 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import permissions
+from rest_framework.schemas import get_schema_view
+from drf_yasg.views import get_schema_view as drf_schema_view
+from drf_yasg import openapi
+
+schema_view = drf_schema_view(
+    openapi.Info(
+        title='DRF-Exam API',
+        default_version='v1',
+        terms_of_Service='https://www.google.com/police/terms/',
+        contact=openapi.Contact(email='ahmedovbahtiar55@gmail.com'),
+        license=openapi.License(name='BSD License'),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('schema/', get_schema_view(
+            title='DRF-Exam API',
+            description='API Description',
+            version='1.0.0'
+        ),
+        name='openapi-schema'
+    ),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-doc'),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/', include('store.urls'), name='app_store'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
